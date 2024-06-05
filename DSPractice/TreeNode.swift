@@ -10,3 +10,24 @@ public class TreeNode {
         self.right = right
     }
 }
+
+class Trees {
+    // Level order traversal or the BFS traversal where the nodes are printed by their level
+    // using queue -> time complexity O(n), space - O(n)
+    func bfsTrees(root: TreeNode) {
+        var queue = [TreeNode]() // using array
+        queue.append(root)
+        
+        while !queue.isEmpty {
+            let dequeued = queue.removeFirst()
+            print(dequeued.val)
+            if let leftNode = dequeued.left {
+                queue.append(leftNode)
+            }
+            
+            if let rightNode = dequeued.right {
+                queue.append(rightNode)
+            }
+        }
+    }
+}
