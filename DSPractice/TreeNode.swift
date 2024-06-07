@@ -53,4 +53,25 @@ class Trees {
         
         return dict.values.map{ $0.val }
     }
+    
+    func rightViewTree(root: TreeNode?) -> [Int] {
+        var dict: OrderedDictionary<Int, TreeNode> = [:]
+        
+        leftViewTreeUtil(root: root, level: 0)
+        
+        func leftViewTreeUtil(root: TreeNode?, level: Int) {
+            if root == nil {
+                return
+            }
+            
+            if dict[level] == nil {
+                dict[level] = root
+            }
+            
+            leftViewTreeUtil(root: root?.right, level: level + 1)
+            leftViewTreeUtil(root: root?.left, level: level + 1)
+        }
+        
+        return dict.values.map{ $0.val }
+    }
 }

@@ -1149,4 +1149,5 @@ let trees = Trees()
 //trees.bfsTrees(root: treeNode1)
 
 print(trees.leftViewTree(root: treeNode1))
+print(trees.rightViewTree(root: treeNode1))
 
