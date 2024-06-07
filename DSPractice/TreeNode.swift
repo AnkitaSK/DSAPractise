@@ -35,7 +35,6 @@ class Trees {
     
     func leftViewTree(root: TreeNode?) -> [Int] {
         var dict: OrderedDictionary<Int, TreeNode> = [:]
-        var results = [Int]()
         
         leftViewTreeUtil(root: root, level: 0)
         
@@ -52,10 +51,6 @@ class Trees {
             leftViewTreeUtil(root: root?.right, level: level + 1)
         }
         
-        for value in dict.values {
-            results.append(value.val)
-        }
-        
-        return results
+        return dict.values.map{ $0.val }
     }
 }
