@@ -1,4 +1,4 @@
-
+import OrderedCollections
 
 public class TreeNode {
     public var val: Int
@@ -34,7 +34,7 @@ class Trees {
     }
     
     func leftViewTree(root: TreeNode?) -> [Int] {
-        var dict = [Int: TreeNode]()
+        var dict: OrderedDictionary<Int, TreeNode> = [:]
         var results = [Int]()
         
         leftViewTreeUtil(root: root, level: 0)
