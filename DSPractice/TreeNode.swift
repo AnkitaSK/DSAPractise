@@ -1,3 +1,5 @@
+
+
 public class TreeNode {
     public var val: Int
     public var left: TreeNode?
@@ -29,5 +31,31 @@ class Trees {
                 queue.append(rightNode)
             }
         }
+    }
+    
+    func leftViewTree(root: TreeNode?) -> [Int] {
+        var dict = [Int: TreeNode]()
+        var results = [Int]()
+        
+        leftViewTreeUtil(root: root, level: 0)
+        
+        func leftViewTreeUtil(root: TreeNode?, level: Int) {
+            if root == nil {
+                return
+            }
+            
+            if dict[level] == nil {
+                dict[level] = root
+            }
+            
+            leftViewTreeUtil(root: root?.left, level: level + 1)
+            leftViewTreeUtil(root: root?.right, level: level + 1)
+        }
+        
+        for value in dict.values {
+            results.append(value.val)
+        }
+        
+        return results
     }
 }

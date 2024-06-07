@@ -1146,4 +1146,7 @@ let bitwise = Bitwise()
 let treeNode1 = TreeNode(4, TreeNode(5, TreeNode(7), TreeNode(9)), TreeNode(1))
 
 let trees = Trees()
-trees.bfsTrees(root: treeNode1)
+//trees.bfsTrees(root: treeNode1)
+
+print(trees.leftViewTree(root: treeNode1))
+
