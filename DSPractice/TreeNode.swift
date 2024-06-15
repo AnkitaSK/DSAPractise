@@ -100,7 +100,33 @@ class Trees {
         }
         
         // 1st sort the dict by key order (ascending) and then print its value
-        // this will print from left to right 
+        // this will print from left to right
+        return dict.sorted(by: { $0.key < $1.key }).map{ $0.value }
+    }
+    
+    func bottomView(root: TreeNode) -> [Int] {
+        // stores horizontal distance and a treenode
+        var queue = [(Int, TreeNode)]()
+        var dict: Dictionary<Int, Int> = [:]
+        
+        queue.append((0, root))
+        
+        while !queue.isEmpty {
+            let dequeue = queue.removeFirst()
+            
+            // logic for bottomview
+            dict[dequeue.0] = dequeue.1.val
+            
+            // normal logic of level traversal
+            if let leftNode = dequeue.1.left {
+                queue.append((dequeue.0 - 1, leftNode))
+            }
+            
+            if let rightNode = dequeue.1.right {
+                queue.append((dequeue.0 + 1, rightNode))
+            }
+        }
+        
         return dict.sorted(by: { $0.key < $1.key }).map{ $0.value }
     }
 }
