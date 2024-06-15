@@ -1154,5 +1154,6 @@ let trees = Trees()
 //print(trees.bottomView(root: treeNode1))
 //print(trees.flattenTree(root: treeNode1) as Any)
 let treeNode2 = TreeNode(4, TreeNode(5), TreeNode(1))
-print(trees.diameterOfTree(root: treeNode2))
+//print(trees.diameterOfTree(root: treeNode2))
+print(trees.maxSumBetweenNodes(root: treeNode2))
 

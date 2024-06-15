@@ -190,4 +190,26 @@ class Trees {
         return result
     }
     
+    // max path sum from any node to anynode
+    func maxSumBetweenNodes(root: TreeNode) -> Int {
+        var result = Int.min
+        
+        maxSum(root: root, result: &result)
+        func maxSum(root: TreeNode?, result: inout Int) -> Int {
+            if root == nil {
+                return 0
+            }
+            
+            let leftSum = maxSum(root: root?.left, result: &result)
+            let rightSum = maxSum(root: root?.right, result: &result)
+            
+            let temp = max(max(leftSum, rightSum) + root!.val, root!.val)
+            let ans = max(temp, leftSum + rightSum + root!.val)
+            result = max(result, ans)
+            return temp
+            
+        }
+        return result
+    }
+    
 }
