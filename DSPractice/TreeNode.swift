@@ -161,4 +161,33 @@ class Trees {
         return head
     }
     
+    // diameter of BT
+    // using DP on tree
+    // 3 steps: base case, hypothesis, induction
+    func diameterOfTree(root: TreeNode) -> Int {
+        var result = Int.min
+        
+        diameter(root: root, result: &result)
+        func diameter(root: TreeNode?, result: inout Int) -> Int {
+            // bc
+            if root == nil {
+                return 0
+            }
+            
+            // hypothesis (remains same)
+            let left = diameter(root: root?.left, result: &result)
+            let right = diameter(root: root?.right, result: &result)
+            
+            // induction
+            // pass the value further, including the self count
+            let temp = max(left, right) + 1
+            // new possible result
+            let ans = max(temp, left + right + 1)
+            result = max(ans, result)
+            
+            return temp
+        }
+        return result
+    }
+    
 }
