@@ -212,4 +212,36 @@ class Trees {
         return result
     }
     
+    func sumIsPresent(root: TreeNode, k: Int) -> Bool {
+        
+        var result = false
+        sum(root: root, add: 0)
+        func sum(root: TreeNode?, add: Int) {
+            
+            if root == nil {
+                return
+            }
+            
+            let left = sumOfNodes(root: root?.left)
+            let right = sumOfNodes(root: root?.right)
+            
+            if left == k || right == k || add == k {
+                result = true
+                return
+            }
+            sum(root: root?.left, add: (left + root!.val))
+            sum(root: root?.right, add: (right + root!.val))
+        }
+        
+        func sumOfNodes(root: TreeNode?) -> Int {
+            if root == nil {
+                return 0
+            }
+            
+            return sumOfNodes(root: root?.left) + sumOfNodes(root: root?.right) + root!.val
+        }
+        
+        return result
+    }
+    
 }
