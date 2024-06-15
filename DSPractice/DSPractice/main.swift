@@ -1150,6 +1150,7 @@ let trees = Trees()
 
 //print(trees.leftViewTree(root: treeNode1))
 //print(trees.rightViewTree(root: treeNode1))
-print(trees.topViewTree(root: treeNode1))
-print(trees.bottomView(root: treeNode1))
+//print(trees.topViewTree(root: treeNode1))
+//print(trees.bottomView(root: treeNode1))
+print(trees.flattenTree(root: treeNode1) as Any)
 

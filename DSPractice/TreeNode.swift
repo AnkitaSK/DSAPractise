@@ -129,4 +129,36 @@ class Trees {
         
         return dict.sorted(by: { $0.key < $1.key }).map{ $0.value }
     }
+    
+    // flatten BT or convert to the Doubly Linked List
+    // inorder traversal
+    // leftTree = left pointer, rightTree = next pointer
+    
+    func flattenTree(root: TreeNode?) -> TreeNode? {
+        var head: TreeNode? = nil
+        var prev: TreeNode? = nil
+        
+        flattenTree(root: root)
+        
+        func flattenTree(root: TreeNode?) {
+            if root == nil {
+                return
+            }
+            //LNR
+            flattenTree(root: root?.left)
+            
+            if prev == nil {
+                head = root
+            } else {
+                prev?.right = root
+                root?.left = prev
+            }
+            prev = root
+            
+            flattenTree(root: root?.right)
+        }
+        
+        return head
+    }
+    
 }
