@@ -244,4 +244,20 @@ class Trees {
         return result
     }
     
+    // Lowest common ancestor
+    // in BST - left subtree is less than the root, right is greater than the root
+    func lcsBST(root: TreeNode?, p: Int, q: Int) -> Int? {
+        if root == nil {
+            return nil
+        }
+        
+        if p < root!.val && q < root!.val {
+            return lcsBST(root: root?.left, p: p, q: q)
+        } else if p > root!.val && q > root!.val {
+            return lcsBST(root: root?.right, p: p, q: q)
+        } else {
+            return root?.val
+        }
+    }
+    
 }

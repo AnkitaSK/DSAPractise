@@ -1158,5 +1158,6 @@ let treeNode2 = TreeNode(4, TreeNode(5), TreeNode(1))
 //print(trees.maxSumBetweenNodes(root: treeNode2))
 
 let treeNode3 = TreeNode(8, TreeNode(6), TreeNode(12, TreeNode(10), nil))
-print(trees.sumIsPresent(root: treeNode3, k: 14))
+//print(trees.sumIsPresent(root: treeNode3, k: 14))
+print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
 
