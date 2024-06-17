@@ -1142,3 +1142,22 @@ let bitwise = Bitwise()
 
 
 //print(removeSmallerElements(array: [3, -1], element: -3))
+
+let treeNode1 = TreeNode(4, TreeNode(5, TreeNode(7), TreeNode(9)), TreeNode(1))
+
+let trees = Trees()
+//trees.bfsTrees(root: treeNode1)
+
+//print(trees.leftViewTree(root: treeNode1))
+//print(trees.rightViewTree(root: treeNode1))
+//print(trees.topViewTree(root: treeNode1))
+//print(trees.bottomView(root: treeNode1))
+//print(trees.flattenTree(root: treeNode1) as Any)
+let treeNode2 = TreeNode(4, TreeNode(5), TreeNode(1))
+//print(trees.diameterOfTree(root: treeNode2))
+//print(trees.maxSumBetweenNodes(root: treeNode2))
+
+let treeNode3 = TreeNode(8, TreeNode(6), TreeNode(12, TreeNode(10), nil))
+//print(trees.sumIsPresent(root: treeNode3, k: 14))
+print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
+
