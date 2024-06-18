@@ -916,7 +916,8 @@ let backTracking = Backtracking()
 //print(backTracking.largestIsland([[1,0],[0,1]]))
 //var test14: [[Character]] = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
 //print(backTracking.surroundedRegionFlip(&test14))
-print(backTracking.ratInMaze(maze: [[1,0,0,0],[1,1,0,1],[1,1,0,0],[0,1,1,1]]))
+//print(backTracking.ratInMaze(maze: [[1,0,0,0],[1,1,0,1],[1,1,0,0],[0,1,1,1]]))
+print(backTracking.isTheWordPresent([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"))
 
 
 let stringProblems = StringProblems()
