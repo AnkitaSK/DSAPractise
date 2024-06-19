@@ -549,6 +549,7 @@ class Solution {
 }
 
 let test = Solution()
+print(test.myPow(2.00000, -2))
 //print(test.isAnagram("aabbbb", "aaaabb"))
 //print(test.groupCommonValuesByIndices([1,1,2,3,1]))
 //print(test.groupAnagrams(["cab","tin","pew","duh","may","ill","buy","bar","max","doc"]))
@@ -1159,5 +1160,5 @@ let treeNode2 = TreeNode(4, TreeNode(5), TreeNode(1))
 
 let treeNode3 = TreeNode(8, TreeNode(6), TreeNode(12, TreeNode(10), nil))
 //print(trees.sumIsPresent(root: treeNode3, k: 14))
-print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
+//print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
 
