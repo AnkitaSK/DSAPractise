@@ -24,7 +24,7 @@ class TrieNode<T: Hashable> {
 
 class Trie {
   typealias Node = TrieNode<Character>
-  fileprivate let root: Node
+  let root: Node
   
   init() {
     root = Node()

@@ -104,4 +104,86 @@ extension Backtracking {
         }
         return result
     }
+    
+    // 212. Word search 2
+    // using DFS + trie
+    // map the given words to be searched into the trie
+    // in dfs compare for letter in the trie
+    func findWords(_ board: [[Character]], _ words: [String]) -> [String] {
+        let trie = Trie()
+        for word in words {
+            trie.addWord(word: word)
+        }
+        
+        var result = Set<String>()
+        let choices = [("u", -1, 0), ("d", 1, 0), ("l", 0, -1), ("r", 0, 1)]
+        let n = board.count
+        let m = board[0].count
+        
+        var boardValue = board
+        var path = ""
+        
+        for i in 0..<n {
+            for j in 0..<m {
+                dfs(board: &boardValue, x: i, y: j, node: trie.root, path: &path)
+            }
+        }
+        
+        func dfs(board: inout [[Character]], x: Int, y: Int, node: TrieNode<Character>, path: inout String) {
+            
+            // base case
+            if node.isTerminating {
+                result.insert(path)
+                return
+            }
+            
+            if !isValid(board: board, x: x, y: y, trieNode: node) {
+                return
+            }
+            
+            for choice in choices {
+                let nextNode = node.children[board[x][y]]!
+                
+                path.append(board[x][y])
+                let temp = board[x][y]
+                board[x][y] = Character("$")
+                
+                dfs(board: &board, x: x + choice.1, y: y + choice.2, node: nextNode, path: &path)
+                // backtrack
+                path.removeLast()
+                board[x][y] = temp
+            }
+        }
+        
+        func isValid(board: [[Character]], x: Int, y: Int, trieNode: TrieNode<Character>) -> Bool {
+            if x >= 0 && x < n && y >= 0 && y < m && board[x][y] != Character("$"), let node = trieNode.children[board[x][y]], node.value == board[x][y] {
+                return true
+            }
+            return false
+        }
+        
+        return result.sorted() // converting into set because of multiple entries
+    }
+}
+
+extension Trie {
+    func addWord(word: String) {
+        guard !word.isEmpty else { return }
+        var currentNode = root
+        let characters = Array(word.lowercased())
+        var charIndex = 0
+        for char in characters {
+            if let child = currentNode.children[char] {
+                currentNode = child
+            } else {
+                currentNode.children[char] = TrieNode(value: char)
+                currentNode = currentNode.children[char]!
+            }
+            charIndex += 1
+        }
+        
+        if charIndex == word.count {
+            currentNode.isTerminating = true
+        }
+    }
 }
