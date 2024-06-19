@@ -85,24 +85,28 @@ class Backtracking {
         input.append(temp)
     }
     
+    // 200.
+    // as you move through the grid, you change land (1) to sea (0)
+    // base case = when you encounter sea, you return
+    // simply keep count of the islands in count var
     func numIslands(_ grid: [[Character]]) -> Int {
         
-        var results = 0
+        var count = 0
         
         if grid.count == 0 {
-            return results
+            return count
         }
         var grid = grid
         for i in 0..<grid.count {
             for j in 0..<grid[0].count {
                 if grid[i][j] == "1" {
                     dfs(&grid, i, j)
-                    results += 1
+                    count += 1
                 }
             }
         }
         
-        return results
+        return count
         
     }
     
@@ -114,12 +118,20 @@ class Backtracking {
     ]
     
     func dfs(_ grid: inout[[Character]], _ x: Int, _ y: Int) {
-        if !isValidGrid(x, y, grid) || grid[x][y] == "0"{
+        
+        // basic validation check
+        if !isValidGrid(x, y, grid){
+            return
+        }
+        
+        // base condition
+        if grid[x][y] == "0" {
             return
         }
         
         for choice in choices {
             grid[x][y] = "0"
+            
             dfs(&grid, x + choice.dx, y + choice.dy)
         }
     }
