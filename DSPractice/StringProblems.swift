@@ -81,5 +81,65 @@ class StringProblems {
         // need this when 1st digit is greatest of all
         backtrack(&digits, &result, index + 1, k: k)
     }
+    
+    func permutation(s: String) -> [String] {
+        
+        var results = [String]()
+        var set = Set<String>()
+        
+        var s = s
+        permutation(&s, 0)
+        
+        func permutation(_ s: inout String, _ start: Int) {
+            if start == s.count - 1 {
+                results.append(s)
+                return
+            }
+            for i in start..<s.count {
+                if !set.contains(s[i]) {
+                    set.insert(s[i])
+                    s.swapAt(start, i)
+                    permutation(&s, start + 1)
+                    s.swapAt(start, i)
+                    set.remove(s[i])
+                }
+            }
+        }
+        
+        return results
+    }
+    
+    // Given an integer n, print all the n digit numbers in increasing order, such that their digits are in strictly increasing order(from left to right).
+    // 9 choices for each give n therefore the timecomplexity is O(9^n)
+    func digitsInIncreasingOrder(n: Int) -> [Int] {
+        // 1 to 9
+        var results = [Int]()
+        if n == 1 {
+            results = Array(0...9)
+        }
+        
+        var answers = [Int]()
+        solve(answers: &answers, n: n)
+        
+        func solve(answers: inout [Int], n: Int) {
+            if n == 0 {
+                // ans
+                let answer = Int(answers.map{ String($0) }.joined())
+                results.append(answer!)
+                return
+            }
+            
+            for i in 1...9 {
+                // condition
+                if answers.isEmpty || (answers.last ?? 0) < i {
+                    answers.append(i)
+                    solve(answers: &answers, n: n - 1)
+                    answers.removeLast()
+                }
+            }
+        }
+        
+        return results
+    }
 }
 
