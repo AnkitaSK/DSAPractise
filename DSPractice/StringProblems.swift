@@ -48,5 +48,38 @@ class StringProblems {
         }
         return result.count
     }
+    
+    // 670. Maximum Swap
+    // using backtracking
+    // convert int to array and work
+    func maximumSwap(_ num: Int) -> Int {
+        var digits = Array(String(num)).map { Int(String($0))! }
+        var result = num
+        let k = 1 // at the most once
+        backtrack(&digits, &result, 0, k: k)
+        return result
+    }
+
+    func backtrack(_ digits: inout [Int], _ result: inout Int, _ index: Int, k: Int) {
+        
+        if k == 0 || index == digits.count {
+            return
+        }
+        
+        if index + 1 < digits.count {
+            for i in (index + 1)..<digits.count {
+                if digits[i] > digits[index] && digits[i] == digits[index..<digits.count].max() {
+                    digits.swapAt(index, i)
+                    let currentNum = Int(digits.map { String($0) }.joined())!
+                    result = max(result, currentNum)
+                    backtrack(&digits, &result, index + 1, k: k - 1)
+                    digits.swapAt(index, i) // backtrack
+                }
+            }
+            
+        }
+        // need this when 1st digit is greatest of all
+        backtrack(&digits, &result, index + 1, k: k)
+    }
 }
 
