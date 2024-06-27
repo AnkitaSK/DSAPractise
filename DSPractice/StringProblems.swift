@@ -141,5 +141,79 @@ class StringProblems {
         
         return results
     }
+    
+    // 131. Palindrome Partitioning
+    // substring - continuous and non-empty
+    // aab
+    func partition(_ s: String) -> [[String]] {
+        var results = [[String]]()
+        
+        var answers = [String]()
+        solve(start: 0, s: s, answers: &answers)
+        
+        func solve(start: Int, s: String, answers: inout [String]) {
+            if start == s.count {
+                // ans
+                results.append(answers)
+                return
+            }
+            
+            for i in start..<s.count { // choice - traverse horizontal
+                if isPalindrome(s, start, i) {
+                    let startIndex = s.index(s.startIndex, offsetBy: start)
+                    let endIndex = s.index(s.startIndex, offsetBy: i)
+                    answers.append(String(s[startIndex...endIndex]))
+                    
+                    solve(start: i + 1, s: s, answers: &answers)
+                    
+                    // backtrack
+                    answers.removeLast()
+                    
+                }
+            }
+        }
+        
+        func isPalindrome(_ s: String, _ start: Int, _ end: Int) -> Bool {
+            var start = start
+            var end = end
+            
+            while start < end {
+                if s[start] != s[end] {
+                    return false
+                }
+                start += 1
+                end -= 1
+            }
+            return true
+        }
+        
+        return results
+    }
+    
+    // 39. Combination Sum
+    func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+        var results = [[Int]]()
+        
+        var answers = [Int]()
+        solve(candidates, start: 0, answers: &answers, sum: 0)
+        
+        func solve(_ arr: [Int], start: Int, answers: inout [Int], sum: Int) {
+            if sum == target {
+                results.append(answers)
+                return
+            }
+            
+            for i in start..<arr.count {
+                if sum + arr[i] > target { continue }
+                    answers.append(arr[i])
+                    solve(arr, start: i, answers: &answers, sum: sum + arr[i])
+                    answers.removeLast()
+            }
+        }
+        
+        return results
+    }
+    
+    
 }
 

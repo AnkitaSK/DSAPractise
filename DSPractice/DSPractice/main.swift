@@ -922,8 +922,10 @@ let stringProblems = StringProblems()
 //print(stringProblems.solve1(s: "mkteneetkybe", t: "e"))
 //print(stringProblems.solve2(s: "c23cb24d8hy23"))
 //print(stringProblems.maximumSwap(98368))
-//print(stringProblems.permutation(s: "aac"))
-print(stringProblems.digitsInIncreasingOrder(n: 3))
+//print(stringProblems.permutation(s: "abc"))
+//print(stringProblems.digitsInIncreasingOrder(n: 3))
+//print(stringProblems.partition("aab"))
+print(stringProblems.combinationSum([2,3,6,7], 7))
 
 
 let stackProblems = StackProblems()
