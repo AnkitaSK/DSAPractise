@@ -59,6 +59,34 @@ struct RecurssionProblems {
         return max(leftHeight, rightHeight) + 1
     }
     
+    // sort array
+    // using IBH method
+    func sortArray(arr: inout [Int]) {
+        // bc valid i/p
+        if arr.count == 1 {
+            return
+        }
+        
+        // hypothesis
+        let temp = arr.removeLast()
+        sortArray(arr: &arr)
+        
+        // induction - logic to merge
+        mergeInArray(arr: &arr, value: temp)
+        
+    }
+    
+    private func mergeInArray(arr: inout [Int], value: Int) {
+        if arr.isEmpty || arr.last! <= value {
+            arr.append(value)
+            return
+        }
+        
+        let temp = arr.removeLast()
+        mergeInArray(arr: &arr, value: value)
+        arr.append(temp)
+    }
+    
 }
 
 

@@ -1174,4 +1174,7 @@ let arrayProblem = ArrayProblems()
 let recurssion = RecurssionProblems()
 //recurssion.printValues(7)
 //recurssion.printValuesReverse(7)
-print(recurssion.heightOfTree(node: treeNode3))
+//print(recurssion.heightOfTree(node: treeNode3))
+var arr = [0,1,10,5,2,3]
+recurssion.sortArray(arr: &arr)
+print(arr)
