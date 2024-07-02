@@ -87,6 +87,27 @@ struct RecurssionProblems {
         arr.append(temp)
     }
     
+    // delete middle element in an array
+    // IBH method
+    func deleteMiddle(arr: inout [Int]) {
+        if arr.isEmpty {
+            return
+        }
+        let k = (arr.count / 2) + 1 // middle element index
+        deleteMiddleElement(arr: &arr, k: k)
+    }
+    
+    private func deleteMiddleElement(arr: inout [Int], k: Int) {
+        if k == 1 {
+            arr.removeLast()
+            return
+        }
+        
+        let temp = arr.removeFirst()
+        deleteMiddleElement(arr: &arr, k: k - 1)
+        arr.insert(temp, at: 0)
+    }
+    
 }
 
 

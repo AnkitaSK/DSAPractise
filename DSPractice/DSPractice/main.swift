@@ -1175,6 +1175,7 @@ let recurssion = RecurssionProblems()
 //recurssion.printValues(7)
 //recurssion.printValuesReverse(7)
 //print(recurssion.heightOfTree(node: treeNode3))
-var arr = [0,1,10,5,2,3]
-recurssion.sortArray(arr: &arr)
+var arr = [1,2,3,4,5,6]
+//recurssion.sortArray(arr: &arr)
+recurssion.deleteMiddle(arr: &arr)
 print(arr)
