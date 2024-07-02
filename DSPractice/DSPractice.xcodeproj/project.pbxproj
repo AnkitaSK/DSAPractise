@@ -12,6 +12,7 @@
 		BC81B4282C08BB9B0064CC56 /* SupportingImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81B4272C08BB9B0064CC56 /* SupportingImplementations.swift */; };
 		BC81B42A2C09F2590064CC56 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81B4292C09F2590064CC56 /* String+Helper.swift */; };
 		BCC9A82F2C29BB6400AC9880 /* ArrayProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */; };
+		BCC9A8312C34542500AC9880 /* RecurssionProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */; };
 		F646C8642B9CA94E007C69CA /* StackProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646C8632B9CA94E007C69CA /* StackProblems.swift */; };
 		F683FBE72B852575009DE459 /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683FBE62B852575009DE459 /* Backtracking.swift */; };
 		F69008562B49A96B00DEE7A6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69008552B49A96B00DEE7A6 /* main.swift */; };
@@ -51,6 +52,7 @@
 		BC81B4272C08BB9B0064CC56 /* SupportingImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingImplementations.swift; sourceTree = "<group>"; };
 		BC81B4292C09F2590064CC56 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayProblems.swift; sourceTree = "<group>"; };
+		BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurssionProblems.swift; sourceTree = "<group>"; };
 		F646C8632B9CA94E007C69CA /* StackProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackProblems.swift; sourceTree = "<group>"; };
 		F683FBE62B852575009DE459 /* Backtracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		F69008522B49A96B00DEE7A6 /* DSPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DSPractice; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				F6F83AE52BADCF45008AB16D /* TwoPointers.swift */,
 				F6F83AE72BB03F4C008AB16D /* BinarySearch.swift */,
 				BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */,
+				BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */,
 				F69008542B49A96B00DEE7A6 /* DSPractice */,
 				F69008532B49A96B00DEE7A6 /* Products */,
 			);
@@ -206,6 +209,7 @@
 				F6F83AE02BA74F5C008AB16D /* Matrix.swift in Sources */,
 				F6F83AEC2BC829D5008AB16D /* Heap.swift in Sources */,
 				F6F83ADE2B9FD520008AB16D /* Graph.swift in Sources */,
+				BCC9A8312C34542500AC9880 /* RecurssionProblems.swift in Sources */,
 				BCC9A82F2C29BB6400AC9880 /* ArrayProblems.swift in Sources */,
 				BC81B4242C03B3870064CC56 /* Trie.swift in Sources */,
 				F683FBE72B852575009DE459 /* Backtracking.swift in Sources */,
