@@ -18,7 +18,7 @@ class StringProblems {
             if value == t {
                 positionsOft.append(index)
             }
-         }
+        }
         
         for (index, _) in s.enumerated() {
             var tempResult = [Int]()
@@ -59,7 +59,7 @@ class StringProblems {
         backtrack(&digits, &result, 0, k: k)
         return result
     }
-
+    
     func backtrack(_ digits: inout [Int], _ result: inout Int, _ index: Int, k: Int) {
         
         if k == 0 || index == digits.count {
@@ -205,15 +205,75 @@ class StringProblems {
             
             for i in start..<arr.count {
                 if sum + arr[i] > target { continue }
-                    answers.append(arr[i])
-                    solve(arr, start: i, answers: &answers, sum: sum + arr[i])
-                    answers.removeLast()
+                answers.append(arr[i])
+                solve(arr, start: i, answers: &answers, sum: sum + arr[i])
+                answers.removeLast()
             }
         }
         
         return results
     }
     
+    // 78. Subsets
+    // using backtracking
+    // input- output method
+    func subsets(_ nums: [Int]) -> [[Int]] {
+        var results = [[Int]]()
+        var input = nums
+        var output = [Int]()
+        solve(input: &input, output: &output)
+        func solve(input: inout [Int], output: inout [Int]) {
+            if input.isEmpty {
+                results.append(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            // include
+            output1.append(input.last!)
+            // remove from input
+            let temp = input.last
+            input.removeLast()
+            
+            solve(input: &input, output: &output1)
+            solve(input: &input, output: &output2)
+            
+            // backtrack
+            input.append(temp!)
+        }
+        
+        return results
+    }
     
+    func subsetsWithDup(_ nums: [Int]) -> [[Int]] {
+        var results = Set<[Int]>()
+        var input = nums
+        var output = [Int]()
+        solve(input: &input, output: &output)
+        func solve(input: inout [Int], output: inout [Int]) {
+            if input.isEmpty {
+                results.insert(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            // include
+            output1.append(input.last!)
+            // remove from input
+            let temp = input.last
+            input.removeLast()
+            
+            solve(input: &input, output: &output1)
+            solve(input: &input, output: &output2)
+            
+            // backtrack
+            input.append(temp!)
+        }
+        
+        return Array(results)
+    }
 }
-

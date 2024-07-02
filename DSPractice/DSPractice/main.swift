@@ -925,7 +925,9 @@ let stringProblems = StringProblems()
 //print(stringProblems.permutation(s: "abc"))
 //print(stringProblems.digitsInIncreasingOrder(n: 3))
 //print(stringProblems.partition("aab"))
-print(stringProblems.combinationSum([2,3,6,7], 7))
+//print(stringProblems.combinationSum([2,3,6,7], 7))
+//print(stringProblems.subsets([1,2,3]))
+print(stringProblems.subsetsWithDup([1,2,2]))
 
 
 let stackProblems = StackProblems()
