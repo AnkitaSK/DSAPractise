@@ -108,6 +108,42 @@ struct RecurssionProblems {
         arr.insert(temp, at: 0)
     }
     
+    // reverse stack
+    // IBH method
+    func reverse(_ stack: inout [Int]) {
+        if stack.isEmpty {
+            return
+        }
+        
+        solve(&stack)
+        
+        func solve(_ stack: inout [Int]) {
+            if stack.count == 1 {
+                return
+            }
+            
+            // hypo
+            let temp = stack.last // top()
+            stack.removeLast() // pop()
+            solve(&stack)
+            
+            // induction
+            insert(&stack, temp!)
+        }
+        
+        func insert(_ stack: inout [Int], _ element: Int) {
+            if stack.isEmpty {
+                stack.append(element) // push(element)
+                return
+            }
+            
+            let temp = stack.last // top()
+            stack.removeLast() // pop()
+            insert(&stack, element)
+            stack.append(temp!) // push(temp)
+        }
+    }
+    
 }
 
 
