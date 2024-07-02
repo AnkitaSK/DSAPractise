@@ -921,6 +921,13 @@ let backTracking = Backtracking()
 let stringProblems = StringProblems()
 //print(stringProblems.solve1(s: "mkteneetkybe", t: "e"))
 //print(stringProblems.solve2(s: "c23cb24d8hy23"))
+//print(stringProblems.maximumSwap(98368))
+//print(stringProblems.permutation(s: "abc"))
+//print(stringProblems.digitsInIncreasingOrder(n: 3))
+//print(stringProblems.partition("aab"))
+//print(stringProblems.combinationSum([2,3,6,7], 7))
+//print(stringProblems.subsets([1,2,3]))
+print(stringProblems.subsetsWithDup([1,2,2]))
 
 
 let stackProblems = StackProblems()
@@ -1105,8 +1112,6 @@ let graphRevision = GraphRevision()
 //print(graphRevision.orangesRotting([[0,2]]))
 //print(graphRevision.maximumDetonation([[2,1,3],[6,1,4]]))
 
-
-//print(graphRevision.findPermutationMap("abc"))
 
 //let heapSolutions = HeapProblems()
 //print(heapSolutions.findKthLargest([3,2,1,5,6,4], 2))
