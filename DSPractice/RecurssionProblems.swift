@@ -144,6 +144,30 @@ struct RecurssionProblems {
         }
     }
     
+    // using i/p - o/p method
+    // print subsets
+    // you reduce the input
+    func printSubsets(_ text: String) {
+        solve(text, "")
+        func solve(_ input: String, _ output: String) {
+            if input.isEmpty {
+                print(output)
+                return
+            }
+            
+            let output1 = output
+            var output2 = output
+            
+            var newInput = input // if using reference type then apply backtracking
+//            output2.append(newInput.removeLast()) // append last and remove and removeLast() does it in one go
+            output2.append(newInput.last!)
+            newInput.removeLast()
+            
+            solve(newInput, output1)
+            solve(newInput, output2)
+        }
+    }
+    
 }
 
 

@@ -1178,5 +1178,7 @@ let recurssion = RecurssionProblems()
 var arr = [1,2,3,4,5,6]
 //recurssion.sortArray(arr: &arr)
 //recurssion.deleteMiddle(arr: &arr)
-recurssion.reverse(&arr)
-print(arr)
+//recurssion.reverse(&arr)
+//print(arr)
+
+recurssion.printSubsets("ab")
