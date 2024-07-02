@@ -377,35 +377,6 @@ class GraphRevision {
             }
         }
     }
-    
-    
-    func findPermutationMap(_ word: String) -> [String] {
-        var results = [String]()
-        var input = word
-        let n = input.count
-        var map = Set<String>()
-        permutation(&input, 0, &results)
-        
-        func permutation(_ input: inout String, _ start: Int, _ results: inout [String]) {
-            if start == n - 1 { // when start pointer reaches the end
-                results.append(input)
-                return
-            }
-            
-            for i in start..<n {
-                if !map.contains(input[i]) {
-                    map.insert(input[i])
-                    input.swapAt(start, i)
-                    permutation(&input, start + 1, &results)
-                    input.swapAt(start, i) // backtracking
-                    map.remove(input[i])
-                }
-                
-            }
-        }
-        
-        return results
-    }
 }
 
 
