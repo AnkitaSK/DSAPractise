@@ -1166,5 +1166,7 @@ let treeNode3 = TreeNode(8, TreeNode(6), TreeNode(12, TreeNode(10), nil))
 //print(trees.sumIsPresent(root: treeNode3, k: 14))
 //print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
 
-
-
+let arrayProblem = ArrayProblems()
+//print(arrayProblem.topKFrequent([4,1,-1,2,-1,2,3], 2))
+//print(arrayProblem.findKthLargest([1], 1))
+print(arrayProblem.findKthLargest2([1], 1))
