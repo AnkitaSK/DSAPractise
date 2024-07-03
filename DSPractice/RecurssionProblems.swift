@@ -202,6 +202,31 @@ struct RecurssionProblems {
         }
     }
     
+    // permutations with case change
+    // choice + decision = ip-op method
+    func printPermutationsWithCaseChange(_ text: String) {
+        
+        solve(text, "")
+        
+        func solve(_ input: String, _ output: String) {
+            if input.isEmpty {
+                print(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            output1.append(input[0].lowercased())
+            output2.append(input[0])
+            
+            var newInput = input
+            newInput.removeFirst()
+            
+            solve(newInput, output1)
+            solve(newInput, output2)
+        }
+    }
 }
 
 

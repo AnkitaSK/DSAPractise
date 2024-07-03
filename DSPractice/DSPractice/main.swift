@@ -1182,4 +1182,5 @@ var arr = [1,2,3,4,5,6]
 //print(arr)
 
 //recurssion.printSubsets("ab")
-recurssion.printPermutations("ABC")
+//recurssion.printPermutations("ABC")
+recurssion.printPermutationsWithCaseChange("AB")
