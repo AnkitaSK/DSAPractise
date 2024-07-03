@@ -168,6 +168,40 @@ struct RecurssionProblems {
         }
     }
     
+    // print permutations with spaces
+    // choice and decision therefore ip-op method
+    func printPermutations(_ text: String) {
+        if text.isEmpty {
+            return
+        }
+        
+        var output = ""
+        output.append(text[0])
+        var input = text
+        input.removeFirst()
+        
+        solve(input, output)
+        
+        func solve(_ input: String, _ output: String) {
+            if input.isEmpty {
+                print(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            output1.append("_\(input[0])")
+            output2.append("\(input[0])")
+            
+            var newInput = input
+            newInput.removeFirst()
+            
+            solve(newInput, output1)
+            solve(newInput, output2)
+        }
+    }
+    
 }
 
 
