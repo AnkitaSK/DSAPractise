@@ -239,43 +239,52 @@ class StackProblems {
         return result
     }
     
-//    func calculate(_ s: String) -> Int {
-//        if s.isEmpty { return 0 }
-//        
-//        let len = s.count
-//        var stack = [Int]()
-//        var currentNumber = 0
-//        var operation: Character = "+"
-//        let characters = Array(s)
-//        
-//        for i in 0..<len {
-//            let currentChar = characters[i]
-//            
-//            if currentChar.isNumber {
-//                currentNumber = (currentNumber * 10) + currentChar.wholeNumberValue!
-//            }
-//            
-//            if !currentChar.isNumber && !currentChar.isWhitespace || i == len - 1 {
-//                switch operation {
-//                case "-":
-//                    stack.append(-currentNumber)
-//                case "+":
-//                    stack.append(currentNumber)
-//                case "*":
-//                    stack.append(stack.removeLast() * currentNumber)
-//                case "/":
-//                    stack.append(stack.removeLast() / currentNumber)
-//                default:
-//                    break
-//                }
-//                operation = currentChar
-//                currentNumber = 0
-//            }
-//        }
-//        
-//        return stack.reduce(0, +)
-//    }
-    
-    // 33 0
+    // 224. Basic Calculator
+    // with brackets -- no multiplication and division
+    // when you encounter ( store result into stack
+    // "(1+(4+5+2)-3)+(6+8)"
+    // revise
+    func calculate2(_ s: String) -> Int {
+        var stack = [Int]()
+        var result = 0
+        var number = 0 // keep track of current number
+        var operation = 1 // default +
+        
+        let sArray = Array(s)
+        
+        for s in sArray {
+            if s.isWholeNumber {
+                number = (number * 10) + s.wholeNumberValue!
+            }
+            
+            if !s.isWholeNumber && !s.isWhitespace {
+                if s == "-" {
+                    result += operation * number
+                    operation = -1
+                } else if s == "+" {
+                    result += operation * number
+                    operation = 1
+                } else if s == "(" {
+                    
+                    stack.append(result)
+                    stack.append(operation)
+                    
+                    result = 0
+                    operation = 1
+                } else if s == ")" {
+                    result += operation * number
+                    
+                    result *= stack.removeLast()
+                    result += stack.removeLast()
+                }
+                
+                number = 0
+            }
+        }
+        
+        result += (number * operation) // add last number in the result
+        return result
+    }
     
 }
+// 0 1 1 1
