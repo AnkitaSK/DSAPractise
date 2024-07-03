@@ -227,6 +227,41 @@ struct RecurssionProblems {
             solve(newInput, output2)
         }
     }
+    
+    // letter case permutation with numbers in between
+    func printPermutationsForCases(_ text: String) {
+        
+        solve(text, "")
+        
+        func solve(_ input: String, _ output: String) {
+            if input.isEmpty {
+                print(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            let temp = Character(input[0])
+            if temp.isLetter {
+                output1.append(temp.lowercased())
+                output2.append(temp.uppercased())
+                
+                var newInput = input
+                newInput.removeFirst()
+                
+                solve(newInput, output1)
+                solve(newInput, output2)
+            } else {
+                // no choice
+                output1.append(temp)
+                var newInput = input
+                newInput.removeFirst()
+                
+                solve(newInput, output1)
+            }
+        }
+    }
 }
 
 
