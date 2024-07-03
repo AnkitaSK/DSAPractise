@@ -262,6 +262,38 @@ struct RecurssionProblems {
             }
         }
     }
+    
+    // Generate all Balanced Parentheses
+    // revise 
+    func generateBalancedParanthesis(n: Int) -> [String] {
+        
+        var results = [String]()
+        solve(n, n, "")
+        func solve(_ openCount: Int, _ closeCount: Int, _ output: String) {
+            if openCount == 0 && closeCount == 0 {
+                results.append(output)
+                return
+            }
+            
+            if openCount != 0 {
+                var output1 = output
+                // and open parenthesis is always added
+                output1.append("(")
+                solve(openCount - 1, closeCount, output1)
+            }
+            
+            
+            // check condition to add close parenthesis
+            if closeCount > openCount {
+                var output2 = output
+                output2.append(")")
+                solve(openCount, closeCount - 1, output2)
+            }
+            
+        }
+        
+        return results
+    }
 }
 
 
