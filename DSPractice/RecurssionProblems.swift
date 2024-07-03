@@ -294,6 +294,30 @@ struct RecurssionProblems {
         
         return results
     }
+    
+//    Print N-bit binary numbers having more 1’s than 0’s for any prefix
+    func prefixOne(n: Int) {
+        
+        solve("", 0, 0, n)
+        // “ “  1= 0, 0 = 0, n = 3
+        func solve(_ output: String, _ ones: Int, _ zeros: Int, _ n: Int) {
+            if n == 0 {
+                print(output)
+                return
+            }
+            
+            var output1 = output
+            output1.append("1")
+            solve(output1, ones + 1, zeros, n - 1)
+            
+            if ones > zeros {
+                var output2 = output
+                output2.append("0")
+                solve(output2, ones, zeros + 1, n - 1)
+            }
+        }
+    }
+    
 }
 
 

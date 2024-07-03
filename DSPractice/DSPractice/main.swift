@@ -1185,4 +1185,5 @@ var arr = [1,2,3,4,5,6]
 //recurssion.printPermutations("ABC")
 //recurssion.printPermutationsWithCaseChange("AB")
 //recurssion.printPermutationsForCases("a1B2")
-print(recurssion.generateBalancedParanthesis(n: 2))
+//print(recurssion.generateBalancedParanthesis(n: 2))
+recurssion.prefixOne(n: 3)
