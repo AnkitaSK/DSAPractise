@@ -1166,7 +1166,7 @@ let treeNode3 = TreeNode(8, TreeNode(6), TreeNode(12, TreeNode(10), nil))
 //print(trees.sumIsPresent(root: treeNode3, k: 14))
 //print(trees.lcsBST(root: treeNode1, p: 7, q: 9))
 
-let arrayProblem = ArrayProblems()
+let arrayProblems = ArrayProblems()
 //print(arrayProblem.topKFrequent([4,1,-1,2,-1,2,3], 2))
 //print(arrayProblem.findKthLargest([1], 1))
 //print(arrayProblem.findKthLargest2([1], 1))
@@ -1191,4 +1191,7 @@ var arr = [1,2,3,4,5,6]
 //print(stackProblems.calculate("33+2*2"))
 //print(stackProblems.calculate2(" 2-1 + 2 "))
 //print(stackProblems.minRemoveToMakeValid("))(("))
-print(stackProblems.simplifyPath("/a//b////c/d//././/.."))
+//print(stackProblems.simplifyPath("/a//b////c/d//././/.."))
+
+//print(arrayProblem.combinationSum2([10,1,2,7,6,1,5], 8))
+print(arrayProblems.combinationSum2([10,1,2,7,6,1,5], 8))

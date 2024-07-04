@@ -79,7 +79,7 @@ class StringProblems {
             
         }
         // need this when 1st digit is greatest of all
-        backtrack(&digits, &result, index + 1, k: k)
+//        backtrack(&digits, &result, index + 1, k: k)
     }
     
     func permutation(s: String) -> [String] {
@@ -188,92 +188,5 @@ class StringProblems {
         }
         
         return results
-    }
-    
-    // 39. Combination Sum
-    func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
-        var results = [[Int]]()
-        
-        var answers = [Int]()
-        solve(candidates, start: 0, answers: &answers, sum: 0)
-        
-        func solve(_ arr: [Int], start: Int, answers: inout [Int], sum: Int) {
-            if sum == target {
-                results.append(answers)
-                return
-            }
-            
-            for i in start..<arr.count {
-                if sum + arr[i] > target { continue }
-                answers.append(arr[i])
-                solve(arr, start: i, answers: &answers, sum: sum + arr[i])
-                answers.removeLast()
-            }
-        }
-        
-        return results
-    }
-    
-    // 78. Subsets
-    // using backtracking
-    // input- output method
-    func subsets(_ nums: [Int]) -> [[Int]] {
-        var results = [[Int]]()
-        var input = nums
-        var output = [Int]()
-        solve(input: &input, output: &output)
-        func solve(input: inout [Int], output: inout [Int]) {
-            if input.isEmpty {
-                results.append(output)
-                return
-            }
-            
-            var output1 = output
-            var output2 = output
-            
-            // include
-            output1.append(input.last!)
-            // remove from input
-            let temp = input.last
-            input.removeLast()
-            
-            solve(input: &input, output: &output1)
-            solve(input: &input, output: &output2)
-            
-            // backtrack
-            input.append(temp!)
-        }
-        
-        return results
-    }
-    
-    func subsetsWithDup(_ nums: [Int]) -> [[Int]] {
-        var results = Set<[Int]>()
-        var input = nums
-        var output = [Int]()
-        solve(input: &input, output: &output)
-        func solve(input: inout [Int], output: inout [Int]) {
-            if input.isEmpty {
-                results.insert(output)
-                return
-            }
-            
-            var output1 = output
-            var output2 = output
-            
-            // include
-            output1.append(input.last!)
-            // remove from input
-            let temp = input.last
-            input.removeLast()
-            
-            solve(input: &input, output: &output1)
-            solve(input: &input, output: &output2)
-            
-            // backtrack
-            input.append(temp!)
-        }
-        
-        return Array(results)
     }
 }

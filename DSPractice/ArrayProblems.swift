@@ -96,6 +96,123 @@ struct ArrayProblems {
         }
         return quickSelect(l: 0, r: array.count - 1)
     }
+    
+    // 39. Combination Sum
+    func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+        var results = [[Int]]()
+        
+        var answers = [Int]()
+        solve(candidates, start: 0, answers: &answers, sum: 0)
+        
+        func solve(_ arr: [Int], start: Int, answers: inout [Int], sum: Int) {
+            if sum == target {
+                results.append(answers)
+                return
+            }
+            
+            for i in start..<arr.count {
+                if sum + arr[i] <= target {
+                    answers.append(arr[i])
+                    solve(arr, start: i, answers: &answers, sum: sum + arr[i]) // start = i because this is not unique
+                    answers.removeLast()
+                }
+            }
+        }
+        
+        return results
+    }
+    
+    // 40. Combination Sum II
+    func combinationSum2(_ candidates: [Int], _ target: Int) -> [[Int]] {
+        var results = [[Int]]()
+        
+        var answers = [Int]()
+        let sortedCanditates = candidates.sorted(by: <) // sorted
+        solve(start: 0, sum: 0, answers: &answers)
+        func solve(start: Int, sum: Int, answers: inout [Int]) {
+            if sum == target {
+                results.append(answers)
+                return
+            }
+            
+            var previous = -1
+            for i in start..<sortedCanditates.count {
+                if sortedCanditates[i] != previous {
+                    if sum + sortedCanditates[i] <= target {
+                        answers.append(sortedCanditates[i])
+                        solve(start: i + 1, sum: sum + sortedCanditates[i], answers: &answers)
+                        answers.removeLast()
+                    }
+                    previous = sortedCanditates[i]
+                }
+            }
+        }
+        
+        return results
+    }
+    
+    // 78. Subsets
+    // using backtracking
+    // input- output method
+    func subsets(_ nums: [Int]) -> [[Int]] {
+        var results = [[Int]]()
+        var input = nums
+        var output = [Int]()
+        solve(input: &input, output: &output)
+        func solve(input: inout [Int], output: inout [Int]) {
+            if input.isEmpty {
+                results.append(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            // include
+            output1.append(input.last!)
+            // remove from input
+            let temp = input.last
+            input.removeLast()
+            
+            solve(input: &input, output: &output1)
+            solve(input: &input, output: &output2)
+            
+            // backtrack
+            input.append(temp!)
+        }
+        
+        return results
+    }
+    
+    func subsetsWithDup(_ nums: [Int]) -> [[Int]] {
+        var results = Set<[Int]>()
+        var input = nums
+        var output = [Int]()
+        solve(input: &input, output: &output)
+        func solve(input: inout [Int], output: inout [Int]) {
+            if input.isEmpty {
+                results.insert(output)
+                return
+            }
+            
+            var output1 = output
+            var output2 = output
+            
+            // include
+            output1.append(input.last!)
+            // remove from input
+            let temp = input.last
+            input.removeLast()
+            
+            solve(input: &input, output: &output1)
+            solve(input: &input, output: &output2)
+            
+            // backtrack
+            input.append(temp!)
+        }
+        
+        return Array(results)
+    }
 }
 
 
