@@ -286,5 +286,34 @@ class StackProblems {
         return result
     }
     
+    
+    // 1249. Minimum Remove to Make Valid Parentheses
+    // revise
+    func minRemoveToMakeValid(_ s: String) -> String {
+        var stack = [Int]() // storing the index into stack
+        var sArray = Array(s)
+        var i = 0
+        
+        for s in sArray {
+            if s == "(" {
+                stack.append(i)
+            } else if s == ")" {
+                if !stack.isEmpty {
+                    stack.removeLast()
+                } else {
+                    sArray[i] = "$"
+                }
+            }
+            i += 1
+        }
+        
+        // when stack has only ( brackets eg: ))((
+        while !stack.isEmpty {
+            let j = stack.removeLast()
+            sArray[j] = "$"
+        }
+        
+        return String(sArray).replacingOccurrences(of: "$", with: "")
+    }
 }
-// 0 1 1 1
+

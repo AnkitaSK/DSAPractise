@@ -1189,4 +1189,5 @@ var arr = [1,2,3,4,5,6]
 //recurssion.prefixOne(n: 3)
 
 //print(stackProblems.calculate("33+2*2"))
-print(stackProblems.calculate2(" 2-1 + 2 "))
+//print(stackProblems.calculate2(" 2-1 + 2 "))
+print(stackProblems.minRemoveToMakeValid("))(("))
