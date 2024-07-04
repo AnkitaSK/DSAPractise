@@ -377,5 +377,28 @@ class StackProblems {
         return components
         
     }
+    
+    // 1614. Maximum Nesting Depth of the Parentheses
+    func maxDepth(_ s: String) -> Int {
+        let sArray = Array(s)
+        var stack = [Int]()
+        var result = Int.min
+        
+        var count = 0
+        for i in 0..<sArray.count {
+            
+            if sArray[i] == "(" {
+                // push to stack
+                stack.append(i)
+                count += 1
+            } else if sArray[i] == ")" {
+                // pop from stack
+                stack.removeLast()
+                count -= 1
+            }
+            result = max(result, count)
+        }
+        return result
+    }
 }
 
