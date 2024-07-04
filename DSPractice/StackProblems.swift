@@ -315,5 +315,67 @@ class StackProblems {
         
         return String(sArray).replacingOccurrences(of: "$", with: "")
     }
+    
+    // 71. Simplify Path
+    // ignore for .
+    // pop for ..
+    // put each text like abc, bc, into a stack
+    // in the end join the stack seperated by /
+    // "/home/"
+    // revise
+    func simplifyPath(_ path: String) -> String {
+        var stack = [String]()
+        // make a func call to split the path into this way
+        var pathArray = splitPath(path: path)
+        pathArray.append("/")
+        var current = ""
+        
+        for p in pathArray {
+            if p == "/" {
+                if current == ".." {
+                    if !stack.isEmpty {
+                        stack.removeLast()
+                    }
+                } else if current != "" && current != "." {
+                    stack.append(current)
+                }
+                current = ""
+            } else { // if p != "/" like . or .. or // or text
+                current += String(p)
+            }
+        }
+        
+        // when end of pathArray is not /
+        
+        let result = "/" + stack.joined(by: Character("/")) // in stack you need to pop everything in the array and join array
+        return String(result)
+    }
+    
+    private func splitPath(path: String) -> [String] {
+        
+        var components = [String]()
+        var current = ""
+        
+        for p in path {
+            if p == "/" {
+                if !current.isEmpty {
+                    components.append(current)
+                    current = ""
+                }
+                components.append("/")
+                
+            } else {
+                current += String(p)
+            }
+        }
+        
+        // when there is no / in the end
+        if !current.isEmpty {
+            components.append(current)
+        }
+        
+        return components
+        
+    }
 }
 

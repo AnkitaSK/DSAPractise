@@ -1190,4 +1190,5 @@ var arr = [1,2,3,4,5,6]
 
 //print(stackProblems.calculate("33+2*2"))
 //print(stackProblems.calculate2(" 2-1 + 2 "))
-print(stackProblems.minRemoveToMakeValid("))(("))
+//print(stackProblems.minRemoveToMakeValid("))(("))
+print(stackProblems.simplifyPath("/a//b////c/d//././/.."))
