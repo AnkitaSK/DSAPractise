@@ -1197,4 +1197,5 @@ var arr = [1,2,3,4,5,6]
 //print(arrayProblems.combinationSum2([10,1,2,7,6,1,5], 8))
 
 //print(stackProblems.maxDepth("()(())((()()))"))
-print(sliding.maxSum(array: [2,5,1,8,2,9,1], k: 3))
+//print(sliding.maxSum(array: [2,5,1,8,2,9,1], k: 3))
+print(sliding.negativeNumbers(array: [12, -1, -7, 8, -15, 30, 16, 28], k: 3))

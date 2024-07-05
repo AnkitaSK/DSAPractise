@@ -164,6 +164,40 @@ class SlidingWindow {
         }
         return result
     }
+    
+    // First Negative Number in every Window of Size K
+    // fixed size sliding window
+    // 12 -1 -7 8 -15 30 16 28 k = 3
+    func negativeNumbers(array: [Int], k: Int) -> [Int] {
+        var result = [Int]()
+        var i = 0
+        var j = 0
+        var queue = [Int]()
+        while j < array.count {
+            // calculate the possible ans as you move the j
+            if array[j] < 0 {
+                queue.append(array[j]) // enqueue
+                // -1 -7
+            }
+            if j - i + 1 < k {
+                j += 1
+            } else if j - i + 1 == k {
+                // possible answer
+                if queue.isEmpty {
+                    result.append(0)
+                } else {
+                    result.append(queue.first!)
+                }
+                // remove the calculation for i and move the window
+                if !queue.isEmpty, array[i] == queue.first! {
+                    queue.removeFirst() // dequeue
+                }
+                i += 1
+                j += 1
+            }
+        }
+        return result
+    }
 }
 
 
