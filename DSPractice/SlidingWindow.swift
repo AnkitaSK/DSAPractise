@@ -198,6 +198,42 @@ class SlidingWindow {
         }
         return result
     }
+
+    // [1,1,1,0,0,0,1,1,1,1,0]
+    // i = 0 j = 5 k = -1
+    // i = 4 j = 6 k = 1
+    func longestOnes(_ nums: [Int], _ k: Int) -> Int {
+        var i = 0
+        var j = 0
+        var result = 0 // Int.min
+        var count = k
+        while j < nums.count {
+            // calculation
+            if nums[j] == 0 {
+                count -= 1
+            }
+            
+            if count > 0 {
+                result = max(result, j - i + 1) // checking here because of the rule - atmost
+                j += 1
+            } else if count == 0 {
+                result = max(result, j - i + 1)
+                j += 1
+            } else if count < 0 {
+                while count < 0 {
+                    // removing calculation
+                    if nums[i] == 0 {
+                        count += 1
+                    }
+                    // shifting i
+                    i += 1
+                }
+                j += 1
+            }
+        }
+        return result
+        
+    }
 }
 
 
