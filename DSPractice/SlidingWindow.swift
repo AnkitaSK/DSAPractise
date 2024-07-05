@@ -140,6 +140,30 @@ class SlidingWindow {
         
         return result
     }
+    
+    // max sum of array of size k
+    // fixed size k
+    func maxSum(array: [Int], k: Int) -> Int {
+        var result = Int.min
+        // i and j - j moving ahead
+        var i = 0
+        var j = 0
+        var sum = 0
+        while j < array.count {
+            sum += array[j]
+            if j - i + 1 < k {
+                j += 1
+            } else if j - i + 1 == k {
+                // possible answer
+                result = max(result, sum)
+                // shift the widow
+                sum -= array[i]
+                i += 1
+                j += 1
+            }
+        }
+        return result
+    }
 }
 
 
