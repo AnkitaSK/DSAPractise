@@ -1051,7 +1051,7 @@ let dynamicProgramming = DP()
 //print(dynamicProgramming.equalSumPartition(arr: [1, 5, 11, 6]))
 //print(dynamicProgramming.countSubsetSumWithGivenSum(arr: [1, 1, 2, 3], sum: 4))
 
-//print(dynamicProgramming.countSubsetSumWithGivenSumTopDown(arr: [1, 1, 2, 3], sum: 4))
+//print(dynamicProgramming.countSubsetSumWithGivenSumTopDown(arr: [4,3,2,3,5,2,1], sum: 5))
 
 //print(dynamicProgramming.coinChange([1, 2, 3], 5))
 //print(dynamicProgramming.coinChange2([1,2,5], 5))
@@ -1199,4 +1199,8 @@ var arr = [1,2,3,4,5,6]
 //print(stackProblems.maxDepth("()(())((()()))"))
 //print(sliding.maxSum(array: [2,5,1,8,2,9,1], k: 3))
 //print(sliding.negativeNumbers(array: [12, -1, -7, 8, -15, 30, 16, 28], k: 3))
-print(sliding.longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2))
+//print(sliding.longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2))
+//print(arrayProblems.canPartitionKSubsets([4,4,6,2,3,8,10,2,10,7], 4))
+
+let prefixSumProblems = PrefixSumProblems()
+print(prefixSumProblems.checkSubarraySum([5,0,0,0], 3))
