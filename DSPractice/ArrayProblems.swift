@@ -98,6 +98,7 @@ struct ArrayProblems {
     }
     
     // 39. Combination Sum
+    // revise
     func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
         var results = [[Int]]()
         
@@ -212,6 +213,40 @@ struct ArrayProblems {
         }
         
         return Array(results)
+    }
+    
+    // 698. Partition to K Equal Sum Subsets
+    // revise
+    func canPartitionKSubsets(_ nums: [Int], _ k: Int) -> Bool {
+        
+        let sum = nums.reduce(0, +) / k
+        var count = 0
+        var used = Array(repeating: false, count: nums.count)
+        var kValue = k
+        solve(0, 0)
+        func solve(_ calculatedSum: Int, _ start: Int) {
+            if kValue == 0 {
+                return
+            }
+            
+            if calculatedSum == sum {
+                count += 1
+                kValue -= 1
+                return
+            }
+            
+            for i in start..<nums.count {
+                if used[i] == false, calculatedSum + nums[i] <= sum {
+                    used[i] = true
+                    solve(calculatedSum + nums[i], i + 1)
+                }
+            }
+        }
+        
+        if count == k {
+            return true
+        }
+        return false
     }
 }
 

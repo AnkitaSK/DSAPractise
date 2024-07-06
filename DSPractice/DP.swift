@@ -109,6 +109,46 @@ class DP {
 //        return dp[n, w]
 //    }
     
+    // 698. Partition to K Equal Sum Subsets
+//    func canPartitionKSubsets(_ nums: [Int], _ k: Int) -> Bool {
+//        
+//        let sum = nums.reduce(0, +) / k
+//        var dp = Matrix(rows: nums.count + 1, columns: sum + 1, value: -1)
+//        var subsetCount = 0
+//        
+//        solve()
+//        func solve() {
+//            
+//            for i in 0..<nums.count + 1 {
+//                for j in 0..<sum + 1 {
+//                    if i == 0 {
+//                        dp[i, j] = 0
+//                    }
+//                    
+//                    if j == 0 {
+//                        dp[i, j] = 1
+//                    }
+//                }
+//            }
+//            
+//            for i in 1..<nums.count + 1 {
+//                for j in 1..<sum + 1 {
+//                    if nums[i - 1] <= j {
+//                        dp[i, j] = dp[i - 1, j] + dp[i - 1, j - nums[i - 1]]
+//                    } else {
+//                        dp[i, j] = dp[i - 1, j]
+//                    }
+//                }
+//            }
+//        }
+//        subsetCount = dp[nums.count, sum]
+//        if subsetCount == k {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+    
     // using topdown
     func countSubsetSumWithGivenSumTopDown(arr: [Int], sum: Int) -> Int {
         var dp = Matrix(rows: arr.count + 1, columns: sum + 1, value: -1)
@@ -116,6 +156,7 @@ class DP {
         return test
     }
     
+    // this is incorrect
     private func countSubsetSumWithGivenSumSolveTopDown(arr: [Int], n: Int, w: Int, dp: inout Matrix<Int>) -> Int {
         
         for i in 0..<n + 1 {
