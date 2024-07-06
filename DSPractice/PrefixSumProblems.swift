@@ -36,4 +36,22 @@ struct PrefixSumProblems {
             }
             return false
         }
+    
+    // 560. Subarray Sum Equals K
+    // return total number of subarrays whose sum is equal to k
+    // O(n2)
+    func subarraySum(_ nums: [Int], _ k: Int) -> Int {
+        var count = 0
+        // find the sum for each subarray
+        for i in 0..<nums.count {
+            var sum = 0
+            for j in i..<nums.count {
+                sum += nums[j]
+                if sum == k {
+                    count += 1
+                }
+            }
+        }
+        return count
+    }
 }
