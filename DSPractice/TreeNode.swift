@@ -260,4 +260,26 @@ class Trees {
         }
     }
     
+    //129. Sum Root to Leaf Numbers
+    func sumNumbers(_ root: TreeNode?) -> Int {
+        
+        func dfs(_ node: TreeNode?, _ path: String) {
+            if node == nil {
+                return
+            }
+            let newPath = path + String(node!.val)
+            if node?.left == nil && node?.right == nil {
+                let value = Int(newPath)!
+                result += value
+                return
+            }
+            dfs(node?.left, newPath)
+            dfs(node?.right, newPath)
+        }
+        
+        var result = 0
+        dfs(root, "")   
+        return result
+    }
+    
 }

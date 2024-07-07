@@ -1203,4 +1203,7 @@ var arr = [1,2,3,4,5,6]
 //print(arrayProblems.canPartitionKSubsets([4,4,6,2,3,8,10,2,10,7], 4))
 
 let prefixSumProblems = PrefixSumProblems()
-print(prefixSumProblems.checkSubarraySum([5,0,0,0], 3))
+//print(prefixSumProblems.checkSubarraySum([5,0,0,0], 3))
+
+let tree5 = TreeNode(0, TreeNode(1), nil)
+print(trees.sumNumbers(tree5))
