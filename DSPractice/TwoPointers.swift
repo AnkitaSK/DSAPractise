@@ -69,4 +69,40 @@ class TwoPointers {
         }
         return false
     }
+    
+    // VALID WORD ABBREVIATION | LEETCODE # 408
+    func validWordAbbriviation(word: String, abbr: String) -> Bool {
+        // word = substitution,  abbr = s10n => true
+        // apple, a2e => false , l is not present
+        // using 2 pointers
+        var wordPtr = 0
+        var abbrPtr = 0
+        
+        let wordArray = Array(word)
+        let abbrArray = Array(abbr)
+        
+        while wordPtr < wordArray.count && abbrPtr < abbrArray.count {
+            if abbrArray[abbrPtr].isWholeNumber {
+                if abbrArray[abbrPtr] == "0" {
+                    return false
+                }
+                // parse if there is a digit in abbr
+                var currentNumber = 0
+                while abbrPtr < abbrArray.count && abbrArray[abbrPtr].isWholeNumber {
+                    currentNumber = (currentNumber * 10) + abbrArray[abbrPtr].wholeNumberValue!
+                    abbrPtr += 1
+                }
+                wordPtr += currentNumber
+            } else {
+                if wordArray[wordPtr] != abbrArray[abbrPtr] {
+                    return false
+                }
+                wordPtr += 1
+                abbrPtr += 1
+            }
+            
+        }
+        
+        return wordPtr == wordArray.count && abbrPtr == abbrArray.count
+    }
 }

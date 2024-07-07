@@ -872,7 +872,7 @@ let temp = Computation()
 //print(computation.levelOrder(root5))
 
 let root6 = TreeNode(1, TreeNode(2), nil)
-//print(computation.rightSideView(root5))
+print(computation.rightSideView(root5))
 
 let root7 = TreeNode(5, TreeNode(4), TreeNode(6, TreeNode(3), TreeNode(7)))
 //let root8 = TreeNode(2, TreeNode(1), TreeNode(3))
@@ -1075,7 +1075,7 @@ let sliding = SlidingWindow()
 //print(sliding.longestSubstring(s: "aabacbebec", k: 3))
 
 
-//let twoPointers = TwoPointers()
+let twoPointers = TwoPointers()
 //print(twoPointers.isSubsequence("abc", "ahbgdc"))
 //
 //print(lcs.isSubsequence("axc", "ahbgdc"))
@@ -1209,4 +1209,6 @@ let tree5 = TreeNode(0, TreeNode(1), nil)
 //print(trees.sumNumbers(tree5))
 //print(graphProblems.minTime(7, [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], [false,false,true,false,true,true,false]))
 
-print(stringProblems.letterCombinations("23"))
+//print(stringProblems.letterCombinations("23"))
+
+print(twoPointers.validWordAbbriviation(word: "apple", abbr: "a2e"))
