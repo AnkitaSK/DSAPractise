@@ -25,7 +25,6 @@
 		F6F83AE42BAB6249008AB16D /* SlidingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F83AE32BAB6249008AB16D /* SlidingWindow.swift */; };
 		F6F83AE62BADCF45008AB16D /* TwoPointers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F83AE52BADCF45008AB16D /* TwoPointers.swift */; };
 		F6F83AE82BB03F4C008AB16D /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F83AE72BB03F4C008AB16D /* BinarySearch.swift */; };
-		F6F83AEA2BC183A4008AB16D /* Revision.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F83AE92BC183A4008AB16D /* Revision.swift */; };
 		F6F83AEC2BC829D5008AB16D /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F83AEB2BC829D5008AB16D /* Heap.swift */; };
 		F6F83AEF2BC86790008AB16D /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F6F83AEE2BC86790008AB16D /* Algorithms */; };
 		F6F83AF22BC8965F008AB16D /* BitCollections in Frameworks */ = {isa = PBXBuildFile; productRef = F6F83AF12BC8965F008AB16D /* BitCollections */; };
@@ -67,7 +66,6 @@
 		F6F83AE32BAB6249008AB16D /* SlidingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingWindow.swift; sourceTree = "<group>"; };
 		F6F83AE52BADCF45008AB16D /* TwoPointers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPointers.swift; sourceTree = "<group>"; };
 		F6F83AE72BB03F4C008AB16D /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
-		F6F83AE92BC183A4008AB16D /* Revision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision.swift; sourceTree = "<group>"; };
 		F6F83AEB2BC829D5008AB16D /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 				BC81B4252C074FC20064CC56 /* Bitwise.swift */,
 				F6F83AEB2BC829D5008AB16D /* Heap.swift */,
 				F6C720902B77A3760091B88E /* TreeNode.swift */,
-				F6F83AE92BC183A4008AB16D /* Revision.swift */,
 				F683FBE62B852575009DE459 /* Backtracking.swift */,
 				F6EF6E522B98D762003C88A2 /* StringProblems.swift */,
 				F646C8632B9CA94E007C69CA /* StackProblems.swift */,
@@ -222,7 +219,6 @@
 				F6EF6E532B98D762003C88A2 /* StringProblems.swift in Sources */,
 				F6F83AE42BAB6249008AB16D /* SlidingWindow.swift in Sources */,
 				F6F83AE62BADCF45008AB16D /* TwoPointers.swift in Sources */,
-				F6F83AEA2BC183A4008AB16D /* Revision.swift in Sources */,
 				F6C720912B77A3760091B88E /* TreeNode.swift in Sources */,
 				F646C8642B9CA94E007C69CA /* StackProblems.swift in Sources */,
 				BC81B4262C074FC20064CC56 /* Bitwise.swift in Sources */,
