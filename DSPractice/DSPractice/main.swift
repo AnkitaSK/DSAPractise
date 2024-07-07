@@ -1207,4 +1207,6 @@ let prefixSumProblems = PrefixSumProblems()
 
 let tree5 = TreeNode(0, TreeNode(1), nil)
 //print(trees.sumNumbers(tree5))
-print(graphProblems.minTime(7, [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], [false,false,true,false,true,true,false]))
+//print(graphProblems.minTime(7, [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], [false,false,true,false,true,true,false]))
+
+print(stringProblems.letterCombinations("23"))

@@ -189,4 +189,49 @@ class StringProblems {
         
         return results
     }
+    
+    // 17. letter combination of a phone number
+    func letterCombinations(_ digits: String) -> [String] {
+        // digits = 23
+        let dict = [
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
+        ]
+        
+        var results = [String]()
+        
+        guard digits.count > 0 else {
+            return []
+        }
+        
+        var ans = ""
+        backtracking(0, &ans)
+        
+        func backtracking(_ start: Int, _ ans: inout String) {
+            // BC
+            if ans.count == digits.count {
+                results.append(ans)
+                return
+            }
+            
+            // loop
+            let digit = digits[start] // 2
+            let characters = String(dict[digit]!) // abc
+            for c in characters { // abc
+                ans += String(c)
+                backtracking(start + 1, &ans)
+                
+                // backtrack
+                ans.removeLast()
+            }
+        }
+        
+        return results
+    }
 }
