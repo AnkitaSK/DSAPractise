@@ -14,6 +14,7 @@
 		BCC9A82F2C29BB6400AC9880 /* ArrayProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */; };
 		BCC9A8312C34542500AC9880 /* RecurssionProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */; };
 		BCC9A8332C39D5C000AC9880 /* PrefixSumProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A8322C39D5C000AC9880 /* PrefixSumProblems.swift */; };
+		BCC9A8352C3B388000AC9880 /* iOSRelatedProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC9A8342C3B388000AC9880 /* iOSRelatedProblems.swift */; };
 		F646C8642B9CA94E007C69CA /* StackProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646C8632B9CA94E007C69CA /* StackProblems.swift */; };
 		F683FBE72B852575009DE459 /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683FBE62B852575009DE459 /* Backtracking.swift */; };
 		F69008562B49A96B00DEE7A6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69008552B49A96B00DEE7A6 /* main.swift */; };
@@ -54,6 +55,7 @@
 		BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayProblems.swift; sourceTree = "<group>"; };
 		BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurssionProblems.swift; sourceTree = "<group>"; };
 		BCC9A8322C39D5C000AC9880 /* PrefixSumProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixSumProblems.swift; sourceTree = "<group>"; };
+		BCC9A8342C3B388000AC9880 /* iOSRelatedProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSRelatedProblems.swift; sourceTree = "<group>"; };
 		F646C8632B9CA94E007C69CA /* StackProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackProblems.swift; sourceTree = "<group>"; };
 		F683FBE62B852575009DE459 /* Backtracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		F69008522B49A96B00DEE7A6 /* DSPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DSPractice; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				BCC9A82E2C29BB6400AC9880 /* ArrayProblems.swift */,
 				BCC9A8302C34542500AC9880 /* RecurssionProblems.swift */,
 				BCC9A8322C39D5C000AC9880 /* PrefixSumProblems.swift */,
+				BCC9A8342C3B388000AC9880 /* iOSRelatedProblems.swift */,
 				F69008542B49A96B00DEE7A6 /* DSPractice */,
 				F69008532B49A96B00DEE7A6 /* Products */,
 			);
@@ -221,6 +224,7 @@
 				F6F83AE62BADCF45008AB16D /* TwoPointers.swift in Sources */,
 				F6C720912B77A3760091B88E /* TreeNode.swift in Sources */,
 				F646C8642B9CA94E007C69CA /* StackProblems.swift in Sources */,
+				BCC9A8352C3B388000AC9880 /* iOSRelatedProblems.swift in Sources */,
 				BC81B4262C074FC20064CC56 /* Bitwise.swift in Sources */,
 				BC81B42A2C09F2590064CC56 /* String+Helper.swift in Sources */,
 				BC81B4282C08BB9B0064CC56 /* SupportingImplementations.swift in Sources */,
