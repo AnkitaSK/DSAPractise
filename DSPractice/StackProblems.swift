@@ -212,7 +212,7 @@ class StackProblems {
             if s.isWholeNumber {
                 currentNumber = ((currentNumber * 10) + s.wholeNumberValue!)
             } 
-            if !s.isWholeNumber && !s.isWhitespace || i == sArray.count - 1 {
+            if !s.isWholeNumber && !s.isWhitespace || i == sArray.count - 1 { // only for the end, even for the whole number the pointer has to enter this condition
                 if operation == "-" {
                     stack.append(currentNumber * -1)
                 } else if operation == "+" {
@@ -232,9 +232,11 @@ class StackProblems {
             i += 1
         }
         
-        while !stack.isEmpty {
-            result += stack.removeLast()
-        }
+//        while !stack.isEmpty {
+//            result += stack.removeLast()
+//        }
+        
+        result = stack.reduce(0, +)
         
         return result
     }
@@ -327,7 +329,7 @@ class StackProblems {
         var stack = [String]()
         // make a func call to split the path into this way
         var pathArray = splitPath(path: path)
-        pathArray.append("/")
+//        pathArray.append("/")// need as part of logic
         var current = ""
         
         for p in pathArray {
@@ -399,6 +401,32 @@ class StackProblems {
             result = max(result, count)
         }
         return result
+    }
+    
+    func isValid(_ s: String) -> Bool {
+        
+        var stack = [Int]()
+        var canPop = true
+        
+        let dict = ["(" : 1,
+                    ")" : 1,
+                    "[" : 2,
+                    "]" : 2,
+                    "{" : 3,
+                    "}" : 3
+        ]
+        
+        for c in s {
+            if c == "(" || c == "[" || c == "{" {
+                stack.append(dict[String(c)]!)
+            } else if let last = stack.last, last == dict[String(c)] {
+                stack.removeLast()
+            } else {
+                canPop = false
+            }
+        }
+        
+        return stack.isEmpty && canPop
     }
 }
 

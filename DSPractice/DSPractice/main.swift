@@ -588,7 +588,7 @@ let depth = computation.maxDepth(root2)
 
 let root3 = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))
 ////print(computation.maxDepth(root3))
-//print(computation.diameterOfTree(root3))
+print(computation.diameterOfTree(root3))
 
 let root4 = TreeNode(1, TreeNode(2), nil)
 //print(computation.maxDepth(root4))
@@ -872,7 +872,7 @@ let temp = Computation()
 //print(computation.levelOrder(root5))
 
 let root6 = TreeNode(1, TreeNode(2), nil)
-print(computation.rightSideView(root5))
+//print(computation.rightSideView(root5))
 
 let root7 = TreeNode(5, TreeNode(4), TreeNode(6, TreeNode(3), TreeNode(7)))
 //let root8 = TreeNode(2, TreeNode(1), TreeNode(3))
@@ -928,6 +928,8 @@ let stringProblems = StringProblems()
 //print(stringProblems.combinationSum([2,3,6,7], 7))
 //print(stringProblems.subsets([1,2,3]))
 //print(stringProblems.subsetsWithDup([1,2,2]))
+//print(stringProblems.myAtoi("-91283472332"))
+print(stringProblems.reorganizeString("aab"))
 
 
 let stackProblems = StackProblems()
@@ -1102,6 +1104,7 @@ let binarySearch = BinarySearch()
 //print(binarySearch.firstOccurance([2,4,10,10,10,18,20], k: 10))
 //print(binarySearch.lastOccurance([2,4,10,10,10,18,20], k: 10))
 //print(binarySearch.countElement([2,4,10,10,10,18,20], k: 10))
+//print(binarySearch.findMedianSortedArrays([1, 2], [3, 4]))
 
 let graphRevision = GraphProblems()
 //print(graphRevision.isCycleForDirected(2, [[1, 0], [0, 1]]))
@@ -1110,7 +1113,7 @@ let graphRevision = GraphProblems()
 //print(graphRevision.pacificAtlantic([[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]))
 //print(graphRevision.findRedundantConnection([[3,7],[1,4],[2,8],[1,6],[7,9],[6,10],[1,7],[2,3],[8,9],[5,9]]))
 //print(graphRevision.orangesRotting([[0,2]]))
-//print(graphRevision.maximumDetonation([[2,1,3],[6,1,4]]))
+//print(graphRevision.maximumDetonation([[1,1,5],[10,10,5]]))
 
 
 //let heapSolutions = HeapProblems()
@@ -1190,13 +1193,15 @@ var arr = [1,2,3,4,5,6]
 
 //print(stackProblems.calculate("33+2*2"))
 //print(stackProblems.calculate2(" 2-1 + 2 "))
-//print(stackProblems.minRemoveToMakeValid("))(("))
-//print(stackProblems.simplifyPath("/a//b////c/d//././/.."))
+//print(stackProblems.minRemoveToMakeValid("())"))
+//print(stackProblems.simplifyPath("/home//foo/"))
 
-//print(arrayProblem.combinationSum2([10,1,2,7,6,1,5], 8))
+//print(arrayProblems.combinationSum([2,3,6,7], 7))
 //print(arrayProblems.combinationSum2([10,1,2,7,6,1,5], 8))
 
 //print(stackProblems.maxDepth("()(())((()()))"))
+//print(stackProblems.isValid("()[]{}"))
+
 //print(sliding.maxSum(array: [2,5,1,8,2,9,1], k: 3))
 //print(sliding.negativeNumbers(array: [12, -1, -7, 8, -15, 30, 16, 28], k: 3))
 //print(sliding.longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2))
@@ -1211,4 +1216,74 @@ let tree5 = TreeNode(0, TreeNode(1), nil)
 
 //print(stringProblems.letterCombinations("23"))
 
-print(twoPointers.validWordAbbriviation(word: "apple", abbr: "a2e"))
+//print(twoPointers.validWordAbbriviation(word: "apple", abbr: "a2e"))
+//print(twoPointers.longestPalindrome("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"))
+
+let list1 = ListNode(val: 2, next: ListNode(val: 4, next: ListNode(val: 5)))
+let list2 = ListNode(val: 1, next: ListNode(val: 3, next: ListNode(val: 4)))
+let list3 = ListNode(val: 2, next: ListNode(val: 6, next: nil))
+
+let linkedList = LinkedListProblems()
+//print(linkedList.addTwoNumbers(list1, list2))
+//print(linkedList.mergeKLists([list1, list2, list3]))
+
+let greedyProblems = GreedyProblems()
+//print(greedyProblems.candy([1,3,2,2,1]))
+
+
+
+
+func minItemsToRemove(prices: [Int], k: Int, threshold: Int) -> Int {
+    // Step 1: Sort the prices in ascending order
+    let sortedPrices = prices.sorted()
+    
+    // Step 2: Calculate the sum of the k smallest items
+    var currentSum = sortedPrices.prefix(k).reduce(0, +)
+    
+    // Step 3: If the current sum is within the threshold, return 0 (no items need to be removed)
+//    if currentSum <= threshold {
+//        return 0
+//    }
+    
+    // Step 4: Remove the most expensive items until the sum is within the threshold
+    for i in stride(from: k - 1, through: 0, by: -1) {
+        currentSum -= sortedPrices[i]
+        if currentSum <= threshold {
+            return k - (i + 1)
+        }
+    }
+    
+    // If it's not possible to meet the threshold, return k (remove all items)
+    return k
+}
+
+//print(minItemsToRemove(prices: [3, 2, 1, 4, 6, 5], k: 3, threshold: 14))
+
+func requestsInQueue(wait: [Int]) -> [Int] {
+    var queue = wait
+    var results: [Int] = []
+    var currentTime = 0
+
+    results.append(queue.count)
+    queue.removeFirst()
+    
+    while !queue.isEmpty {
+        currentTime += 1
+        
+        // Remove the requests that have expired
+//        while !queue.isEmpty && queue[0] <= currentTime {
+//            queue.removeFirst()
+//        }
+        
+        queue = queue.map { $0 - 1 }.filter { $0 > 0 }
+        
+        // Record the number of requests left in the queue
+        results.append(queue.count)
+    }
+    
+    return results
+}
+
+
+
+print(requestsInQueue(wait: [2, 2, 3, 1]))

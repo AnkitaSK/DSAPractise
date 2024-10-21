@@ -165,29 +165,26 @@ class Trees {
     // using DP on tree
     // 3 steps: base case, hypothesis, induction
     func diameterOfTree(root: TreeNode) -> Int {
-        var result = Int.min
         
-        diameter(root: root, result: &result)
-        func diameter(root: TreeNode?, result: inout Int) -> Int {
-            // bc
+        
+        var diameter = 0
+        dfs(root)
+        return diameter
+
+
+        // return diameter from left and right subtrees
+        func dfs(_ root: TreeNode?) -> Int {
             if root == nil {
                 return 0
-            }
-            
-            // hypothesis (remains same)
-            let left = diameter(root: root?.left, result: &result)
-            let right = diameter(root: root?.right, result: &result)
-            
-            // induction
-            // pass the value further, including the self count
-            let temp = max(left, right) + 1
-            // new possible result
-            let ans = max(temp, left + right + 1)
-            result = max(ans, result)
-            
-            return temp
+             }
+
+            let leftTree = dfs(root?.left)
+            let rightTree = dfs(root?.right)
+
+            diameter = max(diameter, leftTree + rightTree)
+
+            return max(leftTree, rightTree) + 1
         }
-        return result
     }
     
     // max path sum from any node to anynode

@@ -234,4 +234,97 @@ class StringProblems {
         
         return results
     }
+    
+    func myAtoi(_ s: String) -> Int {
+        
+        var result = 0
+        var isNegetive = false
+        var started = false
+        
+        for char in s {
+            if char == " " && !started {
+                continue
+            }
+            
+            if char == "-" && !started {
+                isNegetive = true
+                started = true
+                continue
+            }
+            
+            if char == "+" && !started {
+                started = true
+                continue
+            }
+            
+            if let digit = char.wholeNumberValue {
+                result = result * 10 + digit
+                started = true
+
+                let temp = isNegetive ? -result : result
+                
+                if temp > 2147483647 {
+                    return 2147483647
+                } else if temp < -2147483648 {
+                    return -2147483648
+                }
+
+            } else {
+                break
+            }
+        }
+
+        return isNegetive ? -result : result
+    }
+    
+    func reorganizeString(_ str: String) -> String {
+        
+        var hash = Array(repeating: 0, count: 26)
+        let ascii = Int(Character("a").asciiValue!)
+        
+        for char in str {
+            let index = Int(char.asciiValue!) - ascii
+            hash[index] += 1
+        }
+        
+        // find the characters with max freq
+        var maxCount = 0
+        var letter = 0
+        for i in 0..<26 {
+            if hash[i] > maxCount {
+                maxCount = hash[i]
+                letter = i
+            }
+        }
+        
+        // check if possible to reorganise
+        if maxCount > (str.count + 1) / 2 {
+            return ""
+        }
+        
+        // create the result array
+        var res = [Character](repeating: " ", count: str.count)
+        var idx = 0
+        
+        // place the most frequent chars at even positions
+        while hash[letter] > 0 {
+            res[idx] = Character(UnicodeScalar(letter + ascii)!)
+            idx += 2
+            hash[letter] -= 1
+        }
+        
+        // place the remaining characters
+        for i in 0..<26 {
+            while hash[i] > 0 {
+                if idx >= str.count {
+                    idx = 1
+                }
+                res[idx] = Character(UnicodeScalar(i + ascii)!)
+                idx += 2
+                hash[i] -= 1
+            }
+        }
+        
+        return String(res)
+    }
 }

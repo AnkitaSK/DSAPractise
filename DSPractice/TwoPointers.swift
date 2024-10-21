@@ -105,4 +105,49 @@ class TwoPointers {
         
         return wordPtr == wordArray.count && abbrPtr == abbrArray.count
     }
+    
+    // 5. Longest Palindromic Substring
+    func longestPalindrome(_ s: String) -> String {
+        
+        var result = ""
+        var resultLength = 0
+        
+        for i in 0..<s.count {
+            
+            // another loop for pointers traversal
+            // for odd palindrome
+            var left = i
+            var right = i
+            while left >= 0 && right < s.count && s[left] == s[right] {
+                if right - left + 1 > resultLength {
+                    let startIndex = s.index(s.startIndex, offsetBy: left)
+                    let endIndex = s.index(s.startIndex, offsetBy: right)
+                    result = String(s[startIndex...endIndex])
+                    resultLength = right - left + 1
+                }
+                
+                left -= 1
+                right += 1
+            }
+            
+            // another loop for pointers traversal
+            // for even palindrome
+            var l = i
+            var r = i + 1
+            while l >= 0 && r < s.count && s[l] == s[r] {
+                if r - l + 1 > resultLength {
+                    let startIndex = s.index(s.startIndex, offsetBy: l)
+                    let endIndex = s.index(s.startIndex, offsetBy: r)
+                    result = String(s[startIndex...endIndex])
+                    resultLength = r - l + 1
+                }
+                
+                l -= 1
+                r += 1
+            }
+            
+        }
+        
+        return result
+    }
 }

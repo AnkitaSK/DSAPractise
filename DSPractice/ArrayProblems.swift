@@ -99,22 +99,24 @@ struct ArrayProblems {
     
     // 39. Combination Sum
     // revise
+    // 2, 3, 6, 7  o/p = 7
+    // O(2^n)
     func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
         var results = [[Int]]()
         
         var answers = [Int]()
-        solve(candidates, start: 0, answers: &answers, sum: 0)
+        solve(start: 0, answers: &answers, sum: 0)
         
-        func solve(_ arr: [Int], start: Int, answers: inout [Int], sum: Int) {
+        func solve(start: Int, answers: inout [Int], sum: Int) {
             if sum == target {
                 results.append(answers)
                 return
             }
             
-            for i in start..<arr.count {
-                if sum + arr[i] <= target {
-                    answers.append(arr[i])
-                    solve(arr, start: i, answers: &answers, sum: sum + arr[i]) // start = i because this is not unique
+            for i in start..<candidates.count {
+                if sum + candidates[i] <= target {
+                    answers.append(candidates[i])
+                    solve(start: i, answers: &answers, sum: sum + candidates[i]) // start = i because this is not unique
                     answers.removeLast()
                 }
             }

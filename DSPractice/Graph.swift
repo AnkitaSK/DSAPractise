@@ -1063,6 +1063,9 @@ extension GraphProblems {
                     if Double(r1) >= distance {
                         adjList[i]?.append(j)
                     }
+                    if distance <= Double(r2) {
+                        adjList[j]?.append(i)
+                    }
                 }
             }
         }
@@ -1088,5 +1091,51 @@ extension GraphProblems {
                 }
             }
         }
+    }
+    
+    func maximumDetonation2(_ bombs: [[Int]]) -> Int {
+        var adjList = [Int: [Int]]()
+        
+        var result = 0
+        
+        for i in 0..<bombs.count {
+            for j in (i + 1)..<bombs.count {
+                let x1 = bombs[i][0]
+                let y1 = bombs[i][1]
+                let r1 = bombs[i][2]
+                
+                let x2 = bombs[j][0]
+                let y2 = bombs[j][1]
+                let r2 = bombs[j][2]
+                
+                let distance = sqrt(Double(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2))))
+                
+                if Double(r1) >= distance {
+                    adjList[i, default: []].append(j)
+                }
+                if Double(r2) >= distance {
+                    adjList[j, default: []].append(i)
+                }
+            }
+        }
+        
+        // check for detonnation of neighbor
+        for vertex in adjList {
+            var set = Set<Int>()
+            result = max(result, dfs(vertex.key, &set))
+        }
+        
+        func dfs(_ vertex: Int, _ visited: inout Set<Int>) -> Int {
+            if visited.contains(vertex) {
+                return 0
+            }
+            visited.insert(vertex)
+            for neighbour in adjList[vertex] ?? [] {
+                return dfs(neighbour, &visited)
+            }
+            return visited.count
+        }
+        
+        return result
     }
 }

@@ -470,5 +470,49 @@ class BinarySearch {
         
         return -1
     }
+    
+    // 4. Median of Two Sorted Arrays
+    func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+        if nums1.count > nums2.count {
+            return findMedianSortedArrays(nums2, nums1)
+        }
+        
+        let smaller = nums1
+        let larger = nums2
+        
+        var start = 0
+        var end = smaller.count // smaller.count - 1
+         
+        while start <= end {
+            var partitionSmaller = (start + end) / 2
+            var partitionLarger = (smaller.count + larger.count + 1) / 2 - partitionSmaller
+            
+            let maxLeftForSmaller = partitionSmaller == 0 ? Int.min : smaller[partitionSmaller - 1]
+            let minRightForSmaller = partitionSmaller == smaller.count ? Int.max : smaller[partitionSmaller]
+            
+            let maxLeftForLarger = partitionLarger == 0 ? Int.min : larger[partitionLarger - 1]
+            let minRightForLarger = partitionLarger == larger.count ? Int.max : larger[partitionLarger]
+            
+            if maxLeftForSmaller <= minRightForLarger && maxLeftForLarger <= minRightForSmaller {
+                // find answers
+                // check for even or odd count for the combination of arrays
+                if (smaller.count + larger.count) % 2 == 0 {
+                    // even
+                    return Double(max(maxLeftForSmaller, maxLeftForLarger) + min(minRightForSmaller, minRightForLarger)) / 2
+                } else {
+                    // odd
+                    return Double(max(maxLeftForSmaller, maxLeftForLarger))
+                }
+            } else if maxLeftForLarger > minRightForSmaller {
+                // move towards left
+                start = partitionSmaller + 1
+            } else {
+                end = partitionSmaller - 1
+            }
+            
+        }
+        
+        return 0
+    }
 }
 
